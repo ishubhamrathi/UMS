@@ -12,7 +12,7 @@ def details(regno,password):
 
         #user info
         profile = user.user_profile()
-        st.header("Welcome " + profile["data"]["Name"]["Full Name"] + ":WAVE")
+        st.header("Welcome " + profile["data",0]["Name"]["Full Name"] + " :wave:")
         with st.expander("User Details"):
             st.info("Registration No: " + profile["data"]["RegNo"])
             st.info("Roll No : " + profile["data"]["Rollno"])
