@@ -12,18 +12,18 @@ def details(regno,password):
 
         #user info
         
-        profile = user.user_profile()
-        st.write(profile)
-        st.header("Welcome " + profile["data"]["Name"]["Full Name"] + " :wave:")
-        with st.expander("User Details"):
-            st.info("Registration No: " + profile["data"]["RegNo"])
-            st.info("Roll No : " + profile["data"]["Rollno"])
-            st.info("Term: " + profile["data"]["Term"])
-            st.info("Section: " + profile["data"]["Section"])
-            st.info("Programme: " + profile["data"]["Programme"])
-            st.info("Books Issued: " + profile["data"]["Books Issued"])
-        messages = user.messages()
-
+        profile=user.user_profile()
+        if 'data' in profile:
+            st.header("Welcome " + profile["data"]["Name"]["Full Name"] + " :wave:")
+            with st.expander("User Details"):
+                st.info("Registration No: " + profile["data"]["RegNo"])
+                st.info("Roll No : " + profile["data"]["Rollno"])
+                st.info("Term: " + profile["data"]["Term"])
+                st.info("Section: " + profile["data"]["Section"])
+                st.info("Programme: " + profile["data"]["Programme"])
+                st.info("Books Issued: " + profile["data"]["Books Issued"])
+        else:
+            st.write("Failed to load Profile")
         
         # Classes
         d=st.container()
@@ -39,6 +39,7 @@ def details(regno,password):
                 st.write("Status" + classes["data"][i]["status"])
 
          #messages
+        messages = user.messages()
         c=st.container()
         c.title("Latest Messages")
         for i in messages['data']:
