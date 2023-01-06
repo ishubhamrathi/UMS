@@ -11,7 +11,9 @@ def details(regno,password):
     with st.container():
 
         #user info
+        
         profile = user.user_profile()
+        st.write(profile)
         st.header("Welcome " + profile["data"]["Name"]["Full Name"] + " :wave:")
         with st.expander("User Details"):
             st.info("Registration No: " + profile["data"]["RegNo"])
