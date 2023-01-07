@@ -1,7 +1,7 @@
 import streamlit as st
 from ums import User
 
-@st.cache(suppress_st_warning=True)    
+# @st.cache(suppress_st_warning=True)    
     
 def details(regno,password):
     # regno=str(regis)
