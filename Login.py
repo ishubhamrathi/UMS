@@ -14,7 +14,7 @@ def details(regno,password):
         profile=user.user_profile()
         if 'data' in profile:
             st.header("Welcome " + profile["data"]["Name"]["Full Name"] + " :wave:")
-            with st.expander("User Details"):
+            with st.expander("User Details", expanded=True):
                 st.info("Registration No: " + profile["data"]["RegNo"])
                 st.info("Roll No : " + profile["data"]["Rollno"])
                 st.info("Term: " + profile["data"]["Term"])
