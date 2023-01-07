@@ -1,6 +1,8 @@
 import streamlit as st
 from ums import User
 from localStoragePy import localStoragePy
+
+st.set_page_config(page_title='UMS', page_icon='🙂')
 localStorage = localStoragePy('lpuums.streamlit.app', 'sqlite')
 
 def details(regno,password):
