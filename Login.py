@@ -107,7 +107,8 @@ def details1(regno,password):
     user = User(registration=regno, password=password)
 
     with st.container():
-
+         #Auto Login Function
+        st.button(label="Logout", on_click=localStorage.clear())
         #user info
         profile=user.user_profile()
         if 'data' in profile:
@@ -201,8 +202,7 @@ def details1(regno,password):
         else:
             st.write("Failed to load grades.")
 
-        #Auto Login Function
-        st.button(label="Logout", on_click=localStorage.clear())
+       
 
 def check_password():
     k1=localStorage.getItem('k1')
