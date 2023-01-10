@@ -40,15 +40,15 @@ def details(regno,password):
         else:
             st.write("Failed to load Time Table. Please Try Again Later!")
         #messages
-        # if 'data' in messages:
-            messages = user.messages()
+        messages = user.messages()
+        if 'data' in messages:
             c=st.container()
             c.title("Latest Messages")
             for i in messages['data']:
                 with st.expander(i["subject"]):
                     st.info(i["body"])
-        # else: 
-        #     st.write("Failed to load messages.")
+        else: 
+            st.write("Failed to load messages.")
         #announcements
         announcements = user.annoucements()
         f=st.container()
@@ -132,15 +132,15 @@ def details1(regno,password):
         else:
             st.write("Failed to load Time Table. Please Try Again Later!")
         #messages
-        # if 'data' in messages:
         messages = user.messages()
-        c=st.container()
-        c.title("Latest Messages")
-        for i in messages['data']:
-            with st.expander(i["subject"]):
-                st.info(i["body"])
-        # else: 
-        #     st.write("Failed to load messages.")
+        if 'data' in messages:
+            c=st.container()
+            c.title("Latest Messages")
+            for i in messages['data']:
+                with st.expander(i["subject"]):
+                    st.info(i["body"])
+        else: 
+            st.write("Failed to load messages.")
         #announcements
         announcements = user.annoucements()
         f=st.container()
