@@ -26,16 +26,16 @@ def details(regno,password):
         
         # Classes
         d=st.container()
-        d.title("Classes")
+        d.title("Time Table")
         classes = user.classes()
         if 'message' in classes["data"][0].keys() :
             st.write(classes["data"][0]["message"])
         else:
-            for i in range(5):
-                st.title(classes["data"][i]["course"])
-                st.write("Timing" + classes["data"][i]["timing"])
-                st.write("Platform" + classes["data"][i]["platform"])
-                st.write("Status" + classes["data"][i]["status"])
+            for i in classes["data"]:
+                st.title(i["course"])
+                st.info("Timing: " + i["timing"])
+                st.info("Platform/Room: " + i["platform"])
+                st.info("Status: " + i["status"])
 
         #messages
         messages = user.messages()
@@ -113,16 +113,16 @@ def details1(regno,password):
         
         # Classes
         d=st.container()
-        d.title("Classes")
+        d.title("Time Table")
         classes = user.classes()
         if 'message' in classes["data"][0].keys() :
             st.write(classes["data"][0]["message"])
         else:
-            for i in range(5):
-                st.title(classes["data"][i]["course"])
-                st.write("Timing" + classes["data"][i]["timing"])
-                st.write("Platform" + classes["data"][i]["platform"])
-                st.write("Status" + classes["data"][i]["status"])
+            for i in classes["data"]:
+                st.title(i["course"])
+                st.info("Timing: " + i["timing"])
+                st.info("Platform/Room: " + i["platform"])
+                st.info("Status: " + i["status"])
 
         #messages
         messages = user.messages()
