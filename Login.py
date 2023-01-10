@@ -28,15 +28,17 @@ def details(regno,password):
         d=st.container()
         d.title("Time Table")
         classes = user.classes()
-        if 'message' in classes["data"][0].keys() :
-            st.write(classes["data"][0]["message"])
+        if 'data' in classes:
+            if 'message' in classes["data"][0].keys() :
+                st.write(classes["data"][0]["message"])
+            else:
+                for i in classes["data"]:
+                    st.title(i["course"])
+                    st.info("Timing: " + i["timing"])
+                    st.info("Platform/Room: " + i["platform"])
+                    st.info("Status: " + i["status"])
         else:
-            for i in classes["data"]:
-                st.title(i["course"])
-                st.info("Timing: " + i["timing"])
-                st.info("Platform/Room: " + i["platform"])
-                st.info("Status: " + i["status"])
-
+            st.write("Failed to load Time Table")
         #messages
         messages = user.messages()
         c=st.container()
@@ -114,15 +116,17 @@ def details1(regno,password):
         d=st.container()
         d.title("Time Table")
         classes = user.classes()
-        if 'message' in classes["data"][0].keys() :
-            st.write(classes["data"][0]["message"])
+        if 'data' in classes:
+            if 'message' in classes["data"][0].keys() :
+                st.write(classes["data"][0]["message"])
+            else:
+                for i in classes["data"]:
+                    st.title(i["course"])
+                    st.info("Timing: " + i["timing"])
+                    st.info("Platform/Room: " + i["platform"])
+                    st.info("Status: " + i["status"])
         else:
-            for i in classes["data"]:
-                st.title(i["course"])
-                st.info("Timing: " + i["timing"])
-                st.info("Platform/Room: " + i["platform"])
-                st.info("Status: " + i["status"])
-
+            st.write("Failed to load Time Table")
         #messages
         messages = user.messages()
         c=st.container()
