@@ -58,7 +58,6 @@ def details(regno,password):
         datesheet = user.datesheet()
         e=st.container()
         e.title("Datesheet")
-        classes = user.classes()
         if 'message' in datesheet.keys() :
             st.write(datesheet["message"])
         else:
@@ -145,7 +144,6 @@ def details1(regno,password):
         datesheet = user.datesheet()
         e=st.container()
         e.title("Datesheet")
-        classes = user.classes()
         if 'message' in datesheet.keys() :
             st.write(datesheet["message"])
         else:
