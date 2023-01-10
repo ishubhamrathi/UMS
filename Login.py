@@ -40,10 +40,10 @@ def details(regno,password):
         else:
             st.write("Failed to load Time Table. Please Try Again Later!")
         #messages
+        c=st.container()
+        c.title("Latest Messages")
         messages = user.messages()
         if 'data' in messages:
-            c=st.container()
-            c.title("Latest Messages")
             for i in messages['data']:
                 with st.expander(i["subject"]):
                     st.info(i["body"])
@@ -64,14 +64,16 @@ def details(regno,password):
         datesheet = user.datesheet()
         e=st.container()
         e.title("Datesheet")
-        if 'message' in datesheet.keys() :
-            st.write(datesheet["message"])
+        if 'data' in datesheet:
+            if 'message' in datesheet.keys() :
+                st.write(datesheet["message"])
+            else:
+                for i in range(5):
+                    st.title(datesheet["data"][i]["c_code"] + " - " + datesheet["data"][i]["course"])
+                    st.write("Reporting Timing" + datesheet["data"][i]["report"])
+                    st.write("Exam Timing" + datesheet["data"][i]["timing"])
         else:
-            for i in range(5):
-                st.title(datesheet["data"][i]["c_code"] + " - " + datesheet["data"][i]["course"])
-                st.write("Reporting Timing" + datesheet["data"][i]["report"])
-                st.write("Exam Timing" + datesheet["data"][i]["timing"])
-        
+            st.write("Failed to load data.") 
         #marks
         f=st.container()
         f.title("Marks")
@@ -132,10 +134,10 @@ def details1(regno,password):
         else:
             st.write("Failed to load Time Table. Please Try Again Later!")
         #messages
+        c=st.container()
+        c.title("Latest Messages")
         messages = user.messages()
         if 'data' in messages:
-            c=st.container()
-            c.title("Latest Messages")
             for i in messages['data']:
                 with st.expander(i["subject"]):
                     st.info(i["body"])
@@ -156,14 +158,16 @@ def details1(regno,password):
         datesheet = user.datesheet()
         e=st.container()
         e.title("Datesheet")
-        if 'message' in datesheet.keys() :
-            st.write(datesheet["message"])
+        if 'data' in datesheet:
+            if 'message' in datesheet.keys() :
+                st.write(datesheet["message"])
+            else:
+                for i in range(5):
+                    st.title(datesheet["data"][i]["c_code"] + " - " + datesheet["data"][i]["course"])
+                    st.write("Reporting Timing" + datesheet["data"][i]["report"])
+                    st.write("Exam Timing" + datesheet["data"][i]["timing"])
         else:
-            for i in range(5):
-                st.title(datesheet["data"][i]["c_code"] + " - " + datesheet["data"][i]["course"])
-                st.write("Reporting Timing" + datesheet["data"][i]["report"])
-                st.write("Exam Timing" + datesheet["data"][i]["timing"])
-        
+            st.write("Failed to load data.")
         #marks
         f=st.container()
         f.title("Marks")
