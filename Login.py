@@ -73,31 +73,35 @@ def details(regno,password):
                     st.write("Reporting Timing" + datesheet["data"][i]["report"])
                     st.write("Exam Timing" + datesheet["data"][i]["timing"])
         else:
-            st.write("Failed to load data.") 
+            st.write("Failed to load da."tesheet) 
         #marks
         f=st.container()
         f.title("Marks")
         marks = user.marks()
-        for a in marks["data"]:
-            with st.expander("TermID : " + a["termid"]):
-                a=a["courses"]
-                for i in a:
-                    st.write(i["course"])
-                    i=i["marks"]
-                    for j in i:
+        if 'data' in marks:
+            for a in marks["data"]:
+                with st.expander("TermID : " + a["termid"]):
+                    a=a["courses"]
+                    for i in a:
+                        st.write(i["course"])
+                        i=i["marks"]
+                        for j in i:
 
-                        st.success(j["type"] + " Marks : " + j["marks"][1])
-
+                            st.success(j["type"] + " Marks : " + j["marks"][1])
+        else:
+            st.write("Failed to load marks")
         #Grades
         grades = user.grades()
         g=st.container()
         g.title("Grades")
-        for i in grades["data"]:
-            with st.expander("Term " + str(i["term"])):
-                st.write("TGPA: " + str(i["tgpa"]))
-                for j in i["grades"]:
-                    st.success(j["course"]+ ": " + j["grade"])
-
+        if 'data' in grades:
+            for i in grades["data"]:
+                with st.expander("Term " + str(i["term"])):
+                    st.write("TGPA: " + str(i["tgpa"]))
+                    for j in i["grades"]:
+                        st.success(j["course"]+ ": " + j["grade"])
+        else:
+            st.write("Failed to load grades.")
 
 def details1(regno,password):
     user = User(registration=regno, password=password)
@@ -167,30 +171,35 @@ def details1(regno,password):
                     st.write("Reporting Timing" + datesheet["data"][i]["report"])
                     st.write("Exam Timing" + datesheet["data"][i]["timing"])
         else:
-            st.write("Failed to load data.")
+            st.write("Failed to load datesheet.")
         #marks
         f=st.container()
         f.title("Marks")
         marks = user.marks()
-        for a in marks["data"]:
-            with st.expander("TermID : " + a["termid"]):
-                a=a["courses"]
-                for i in a:
-                    st.write(i["course"])
-                    i=i["marks"]
-                    for j in i:
+        if 'data' in marks:
+            for a in marks["data"]:
+                with st.expander("TermID : " + a["termid"]):
+                    a=a["courses"]
+                    for i in a:
+                        st.write(i["course"])
+                        i=i["marks"]
+                        for j in i:
 
-                        st.success(j["type"] + " Marks : " + j["marks"][1])
-
+                            st.success(j["type"] + " Marks : " + j["marks"][1])
+        else:
+            st.write("Failed to load marks")
         #Grades
         grades = user.grades()
         g=st.container()
         g.title("Grades")
-        for i in grades["data"]:
-            with st.expander("Term " + str(i["term"])):
-                st.write("TGPA: " + str(i["tgpa"]))
-                for j in i["grades"]:
-                    st.success(j["course"]+ ": " + j["grade"])
+        if 'data' in grades:
+            for i in grades["data"]:
+                with st.expander("Term " + str(i["term"])):
+                    st.write("TGPA: " + str(i["tgpa"]))
+                    for j in i["grades"]:
+                        st.success(j["course"]+ ": " + j["grade"])
+        else:
+            st.write("Failed to load grades.")
 
         #Auto Login Function
         st.button(label="Logout", on_click=localStorage.clear())
