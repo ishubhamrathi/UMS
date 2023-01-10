@@ -73,7 +73,7 @@ def details(regno,password):
                     st.write("Reporting Timing" + datesheet["data"][i]["report"])
                     st.write("Exam Timing" + datesheet["data"][i]["timing"])
         else:
-            st.write("Failed to load da."tesheet) 
+            st.write("Failed to load datesheet") 
         #marks
         f=st.container()
         f.title("Marks")
