@@ -38,24 +38,28 @@ def details(regno,password):
                     st.info("Platform/Room: " + i["platform"])
                     st.info("Status: " + i["status"])
         else:
-            st.write("Failed to load Time Table")
+            st.write("Failed to load Time Table. Please Try Again Later!")
         #messages
-        messages = user.messages()
-        c=st.container()
-        c.title("Latest Messages")
-        for i in messages['data']:
-            with st.expander(i["subject"]):
-                st.info(i["body"])
-
+        # if 'data' in messages:
+            messages = user.messages()
+            c=st.container()
+            c.title("Latest Messages")
+            for i in messages['data']:
+                with st.expander(i["subject"]):
+                    st.info(i["body"])
+        # else: 
+        #     st.write("Failed to load messages.")
         #announcements
         announcements = user.annoucements()
         f=st.container()
         f.title("Announcents")
         f.caption("It displays only 10 at this moment")
-        for i in announcements["data"]:
-            with st.expander(i["title"]):
-                st.info(i["body"])
-                    
+        if 'data' in announcements:
+            for i in announcements["data"]:
+                with st.expander(i["title"]):
+                    st.info(i["body"])
+        else:
+            st.write("Failed to load announcements.")
         # Datesheet
         datesheet = user.datesheet()
         e=st.container()
@@ -126,24 +130,28 @@ def details1(regno,password):
                     st.info("Platform/Room: " + i["platform"])
                     st.info("Status: " + i["status"])
         else:
-            st.write("Failed to load Time Table")
+            st.write("Failed to load Time Table. Please Try Again Later!")
         #messages
+        # if 'data' in messages:
         messages = user.messages()
         c=st.container()
         c.title("Latest Messages")
         for i in messages['data']:
             with st.expander(i["subject"]):
                 st.info(i["body"])
-
+        # else: 
+        #     st.write("Failed to load messages.")
         #announcements
         announcements = user.annoucements()
         f=st.container()
         f.title("Announcents")
         f.caption("It displays only 10 at this moment")
-        for i in announcements["data"]:
-            with st.expander(i["title"]):
-                st.info(i["body"])
-                    
+        if 'data' in announcements:
+            for i in announcements["data"]:
+                with st.expander(i["title"]):
+                    st.info(i["body"])
+        else:
+            st.write("Failed to load announcements.")
         # Datesheet
         datesheet = user.datesheet()
         e=st.container()
